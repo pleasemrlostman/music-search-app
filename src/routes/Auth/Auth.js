@@ -29,6 +29,7 @@ const Auth = () => {
                         type="email"
                         name="email"
                         value={emailValue}
+                        placeholder="Please write your e-mail"
                         onChange={onChange}
                     />
                     <input
@@ -36,6 +37,7 @@ const Auth = () => {
                         type="password"
                         name="password"
                         value={passwordlValue}
+                        placeholder="Please write your password"
                         onChange={onChange}
                     />
                     <input
