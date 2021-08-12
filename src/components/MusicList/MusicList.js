@@ -1,23 +1,33 @@
 import React from "react";
-import "./MusicList.css";
+import "./MusicList.scss";
+import { Link } from "react-router-dom";
 
 const MusicList = (props) => {
     const list = props.musicData.slice(0, 10);
     return (
         <>
-            <div className="all-wrap">
+            <div className="list-wrap">
                 {list.length !== 0 ? (
                     list.map((value) => {
+                        console.log(value);
                         return (
-                            <div className="search-infor">
-                                <img
-                                    className="bg-img"
-                                    src={
-                                        value.image[3]["#text"] !== ""
-                                            ? value.image[3]["#text"]
-                                            : " https://images.unsplash.com/photo-1602848597239-b63398805e3f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=495&q=80"
-                                    }
-                                ></img>
+                            <Link
+                                to={{
+                                    pathname: `/detail`,
+                                    state: {
+                                        name: value.name,
+                                        artist: value.artist,
+                                        image: value.image[3]["#text"],
+                                    },
+                                }}
+                                className="search-infor"
+                            >
+                                <div
+                                    className="music-img"
+                                    style={{
+                                        backgroundImage: `url(${value.image[3]["#text"]})`,
+                                    }}
+                                ></div>
                                 <div className="seq-infor">
                                     <h2 className="one-line-text artist-name">
                                         {value.artist}
@@ -26,7 +36,7 @@ const MusicList = (props) => {
                                         {value.name}
                                     </h3>
                                 </div>
-                            </div>
+                            </Link>
                         );
                     })
                 ) : (

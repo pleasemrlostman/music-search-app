@@ -1,19 +1,22 @@
-.music-search-input {
-    width: calc(100% - 100px);
-    padding: 30px;
-    box-shadow: 0 7px 14px 0 rgba(8, 15, 52, 0.2);
-    border: 1px solid #ececec;
-    outline: none;
-    font-size: 20px;
-}
-.no-search {
-    font-style: italic;
-    font-size: 30px;
-    text-align: center;
+.wrap {
+    .search-form {
+        .music-search-input {
+            padding: 30px;
+            width: calc(100% - 62px);
+            box-shadow: 0 7px 14px 0 rgba(8, 15, 52, 0.1);
+            border: 1px solid #ececec;
+            outline: none;
+            font-size: 16px;
+        }
+    }
 }
 @media (max-width: 684px) {
-    .music-search-input {
-        padding: 10px;
-        width: calc(100% - 30px);
+    .wrap {
+        .search-form {
+            .music-search-input {
+                padding: 10px;
+                width: calc(100% - 22px);
+            }
+        }
     }
 }

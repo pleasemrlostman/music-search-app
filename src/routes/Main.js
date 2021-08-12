@@ -38,13 +38,13 @@ const Main = () => {
             {musicLoading ? (
                 <h1>로딩중</h1>
             ) : (
-                <div>
-                    <form>
+                <div className="wrap">
+                    <form className="search-form">
                         <input
                             className="music-search-input"
                             name="music"
                             type="text"
-                            placeholder="검색어를 입력해주세요"
+                            placeholder="Please Write Artist and Album Name"
                             value={searchValue}
                             onChange={onSearch}
                         />
