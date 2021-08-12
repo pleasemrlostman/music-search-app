@@ -1,0 +1,60 @@
+.all-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+    position: relative;
+}
+.search-infor {
+    position: relative;
+    width: calc(20% - 30px);
+    box-shadow: 0 7px 14px 0 rgba(8, 15, 52, 0.3);
+}
+
+.bg-img {
+    width: 100%;
+}
+.seq-infor {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 60%;
+    padding: 20px;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.one-line-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0px;
+}
+.artist-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.album-name {
+    font-size: 16px;
+}
+
+@media (max-width: 684px) {
+    .search-infor {
+        width: calc(50% - 30px);
+    }
+    .seq-infor {
+        bottom: 10px;
+        right: 10px;
+        padding: 10px;
+        border-radius: 0;
+    }
+    .artist-name {
+        font-weight: 600;
+        margin-bottom: 5px;
+        font-size: 13px;
+    }
+    .album-name {
+        font-size: 10px;
+    }
+}
