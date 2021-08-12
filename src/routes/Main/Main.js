@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import MusicList from "../components/MusicList/MusicList";
+import MusicList from "../../components/MusicList/MusicList";
 import "./Main.scss";
 
 const Main = () => {
