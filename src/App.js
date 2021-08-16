@@ -9,7 +9,7 @@ import { authService } from "fbase";
 function App() {
     const [init, setInit] = useState(false);
     const [isLogged, setIsLogged] = useState(false);
-    const [userObjm, setUserObj] = useState(null);
+    const [userObj, setUserObj] = useState(null);
     useEffect(() => {
         authService.onAuthStateChanged((user) => {
             if (user) {
@@ -39,7 +39,7 @@ function App() {
                     {/* <Route exact path="/">
                     <Main />
                 </Route> */}
-                    <Route exact path="/detail" component={Detail} />
+                    <Route exact path="/detail/:id" component={Detail} />
                 </HashRouter>
             ) : (
                 "initializing"

@@ -13,7 +13,7 @@ const MusicList = (props) => {
                         return (
                             <Link
                                 to={{
-                                    pathname: `/detail`,
+                                    pathname: `/detail/${value.name}`,
                                     state: {
                                         name: value.name,
                                         artist: value.artist,
