@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Detail.scss";
+import "components/Detail/Detail.scss";
 
 const Detail = (props) => {
     const [detailMusicData, setDetailMusicData] = useState("");

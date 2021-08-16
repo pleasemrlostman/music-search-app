@@ -1,5 +1,5 @@
 import React from "react";
-import "./MusicList.scss";
+import "components/MusicList/MusicList.scss";
 import { Link } from "react-router-dom";
 
 const MusicList = (props) => {
