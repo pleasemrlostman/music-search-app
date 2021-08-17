@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import MusicList from "components/MusicList/MusicList";
 import "routes/Main/Main.scss";
 
-const Main = () => {
+const Main = ({ userObj }) => {
     const [musicLoading, setMusicLoading] = useState(false);
     const [searchValue, setSearchValue] = useState("");
     const [musicData, setMusicData] = useState([]);
@@ -49,7 +49,7 @@ const Main = () => {
                             onChange={onSearch}
                         />
                     </form>
-                    <MusicList musicData={musicData} />
+                    <MusicList musicData={musicData} userObj={userObj} />
                 </div>
             )}
         </>

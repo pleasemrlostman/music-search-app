@@ -29,7 +29,7 @@ function App() {
                 <HashRouter>
                     {isLogged ? (
                         <Route exact path="/">
-                            <Main />
+                            <Main userObj={userObj} />
                         </Route>
                     ) : (
                         <Route exact path="/">

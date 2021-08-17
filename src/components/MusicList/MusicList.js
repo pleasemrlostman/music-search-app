@@ -9,7 +9,6 @@ const MusicList = (props) => {
             <div className="list-wrap">
                 {list.length !== 0 ? (
                     list.map((value) => {
-                        console.log(value);
                         return (
                             <Link
                                 to={{
@@ -18,6 +17,7 @@ const MusicList = (props) => {
                                         name: value.name,
                                         artist: value.artist,
                                         image: value.image[3]["#text"],
+                                        user: props.userObj,
                                     },
                                 }}
                                 className="search-infor"

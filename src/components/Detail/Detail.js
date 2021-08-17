@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "components/Detail/Detail.scss";
 import { dbService } from "fbase";
+import Reply from "components/Reply/Reply";
 
 const Detail = (props) => {
+    let todayDate = `${new Date().getFullYear()}년 ${new Date().getMonth()}월 ${new Date().getDay()}일`;
+
+    const [user, setUser] = useState(null);
     const [detailMusicData, setDetailMusicData] = useState("");
     const [reply, setReply] = useState("");
     const [replys, setReplys] = useState([]);
@@ -10,6 +14,7 @@ const Detail = (props) => {
         if (props.location.state === undefined) {
             props.history.push("/");
         }
+        setUser(props.location.state.user.email);
         setDetailMusicData(props.location.state);
         dbService
             .collection(`${props.location.state.name}`)
@@ -70,13 +75,15 @@ const Detail = (props) => {
             </div>
             <div className="detail-reply">
                 <h2 className="detail-reply__title">앨범한줄평</h2>
-                <div className="detail-reply__reply">
+                <div className="detail-reply__replys">
                     {replys.map((value) => {
                         return (
                             <>
-                                <div>
-                                    <h4>{value.text}</h4>
-                                </div>
+                                <Reply
+                                    user={user}
+                                    todayDate={todayDate}
+                                    text={value.text}
+                                />
                             </>
                         );
                     })}
