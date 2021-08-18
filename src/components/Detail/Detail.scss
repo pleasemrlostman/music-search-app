@@ -83,11 +83,12 @@
                 .detail-reply__name-wraps {
                     border-bottom: 1px solid #ddd;
                     padding-bottom: 15px;
-                    margin-bottom: 10px;
+                    margin-bottom: 20px;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
                     font-size: 12px;
+                    letter-spacing: -1px;
                     .detail-reply__name-user {
                         display: flex;
                         align-items: center;
@@ -98,11 +99,36 @@
                     }
                     .detail-reply__name-name {
                     }
+                    .detail-reply__date {
+                    }
+                }
+                .detail-reply__modi-wrap {
+                    width: 100%;
+                    .detail-reply__modi {
+                        width: calc(100% - 40px);
+                        border: 1px solid #ececec;
+                        padding: 20px;
+                        margin: auto;
+                        border-radius: 10px;
+                        margin-bottom: 20px;
+                        box-shadow: 0 7px 14px 0 rgba(8, 15, 52, 0.05);
+                    }
                 }
                 .detail-reply__text {
                     font-size: 20px;
                     font-weight: 600;
                     line-height: 1.4;
+                }
+                .detail-reply__change {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    margin-top: 10px;
+                    .detail-reply__btn {
+                        border: none;
+                        background-color: #fff;
+                        font-size: 12px;
+                    }
                 }
             }
         }

@@ -5,19 +5,22 @@ import Reply from "components/Reply/Reply";
 
 const Detail = (props) => {
     let todayDate = `${new Date().getFullYear()}년 ${new Date().getMonth()}월 ${new Date().getDay()}일`;
-
     const [user, setUser] = useState(null);
     const [detailMusicData, setDetailMusicData] = useState("");
     const [reply, setReply] = useState("");
     const [replys, setReplys] = useState([]);
     useEffect(() => {
-        if (props.location.state === undefined) {
+        if (
+            props.location.state === undefined ||
+            props.location.state.user === undefined
+        ) {
             props.history.push("/");
         }
         setUser(props.location.state.user.email);
         setDetailMusicData(props.location.state);
         dbService
             .collection(`${props.location.state.name}`)
+            .orderBy("createDate", "desc")
             .onSnapshot((snapshot) => {
                 const replyArray = snapshot.docs.map((value) => {
                     return {
@@ -36,6 +39,7 @@ const Detail = (props) => {
         e.preventDefault();
         await dbService.collection(`${detailMusicData.name}`).add({
             text: reply,
+            userName: user,
             createDate: Date.now(),
         });
         setReply("");
@@ -74,15 +78,20 @@ const Detail = (props) => {
                 </div>
             </div>
             <div className="detail-reply">
-                <h2 className="detail-reply__title">앨범한줄평</h2>
+                <h2 className="detail-reply__title">
+                    앨범한줄평을 남겨주세요!
+                </h2>
                 <div className="detail-reply__replys">
                     {replys.map((value) => {
                         return (
                             <>
                                 <Reply
-                                    user={user}
+                                    id={value.id}
+                                    userName={value.userName}
                                     todayDate={todayDate}
                                     text={value.text}
+                                    user={user}
+                                    album={detailMusicData.name}
                                 />
                             </>
                         );
