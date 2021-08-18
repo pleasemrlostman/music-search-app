@@ -4,7 +4,9 @@ import { dbService } from "fbase";
 import Reply from "components/Reply/Reply";
 
 const Detail = (props) => {
-    let todayDate = `${new Date().getFullYear()}년 ${new Date().getMonth()}월 ${new Date().getDay()}일`;
+    let todayDate = `${new Date().getFullYear()}년 ${
+        new Date().getMonth() + 1
+    }월 ${new Date().getDate()}일`;
     const [user, setUser] = useState(null);
     const [detailMusicData, setDetailMusicData] = useState("");
     const [reply, setReply] = useState("");
@@ -41,6 +43,7 @@ const Detail = (props) => {
             text: reply,
             userName: user,
             createDate: Date.now(),
+            todayDate: todayDate,
         });
         setReply("");
     };
@@ -88,7 +91,7 @@ const Detail = (props) => {
                                 <Reply
                                     id={value.id}
                                     userName={value.userName}
-                                    todayDate={todayDate}
+                                    todayDate={value.todayDate}
                                     text={value.text}
                                     user={user}
                                     album={detailMusicData.name}
