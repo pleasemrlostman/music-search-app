@@ -5,7 +5,6 @@ import Auth from "routes/Auth/Auth";
 import Detail from "components/Detail/Detail";
 import GlobalStyles from "components/GlobalStyles";
 import { authService } from "fbase";
-
 function App() {
     const [init, setInit] = useState(false);
     const [isLogged, setIsLogged] = useState(false);
